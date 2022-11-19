@@ -1,0 +1,104 @@
+<div class="progress-spinner" *ngIf="loadding">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<p-toast></p-toast>
+<div id="homeComp">
+    <div class="login-form">
+        <form #heroForm="ngForm">
+            <div class="col-md-12">
+                <div class="row form-input">
+                    <div class="col-md-12 center-text">
+                        <span class="login-text"> Login home</span>
+                    </div>
+                </div>
+
+                <div class="row form-input">
+                    <div class="col-md-12">
+                        <span class="p-float-label">
+              <input
+                id="userName"
+                class="w-100"
+                type="text"
+                #userName="ngModel"
+                [ngClass]="
+                  (userName.touched || userName.dirty) && userName.invalid
+                    ? 'err-border'
+                    : ''
+                "
+                name="userName"
+                pInputText
+                required
+                [(ngModel)]="user.userName"
+              />
+              <label
+                for="userName"
+                [ngClass]="
+                  (userName.touched || userName.dirty) && userName.invalid
+                    ? 'err-text'
+                    : ''
+                "
+                >Username</label
+              >
+            </span>
+                    </div>
+                    <div class="col-md-12" [hidden]="
+              !((userName.touched || userName.dirty) && userName.invalid)
+            ">
+                        <span class="err-text">Name is required</span>
+                    </div>
+                </div>
+
+                <div class="row form-input">
+                    <div class="col-md-12">
+                        <span class="p-float-label">
+              <input
+                id="password"
+                class="w-100"
+                type="password"
+                #password="ngModel"
+                [ngClass]="
+                  (password.touched || password.dirty) && password.invalid
+                    ? 'err-border'
+                    : ''
+                "
+                name="password"
+                pInputText
+                required
+                [(ngModel)]="user.password"
+              />
+
+              <label
+                for="password"
+                [ngClass]="
+                  (password.touched || password.dirty) && password.invalid
+                    ? 'err-text'
+                    : ''
+                "
+                >Password</label
+              >
+            </span>
+                    </div>
+                    <div class="col-md-12" [hidden]="
+              !((password.touched || password.dirty) && password.invalid)
+            ">
+                        <span class="err-text">Password is required</span>
+                    </div>
+                </div>
+
+                <div class="row form-input">
+                    <div class="col-md-12">
+                        <span>Forgot password?</span>
+                    </div>
+                </div>
+
+                <div class="row form-input">
+                    <div class="col-md-12">
+                        <button pButton type="button" label="Login" class="btn-login" (click)="login()"></button>
+                        <button pButton type="button" label="Signup" class="btn-login" (click)="signUp()"></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

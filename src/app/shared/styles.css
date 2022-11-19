@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(2, 0, 36);
+    background: linear-gradient( 90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 51, 1) 24%, rgba(0, 212, 255, 1) 100%);
+}
+
+app-root {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.progress-spinner {
+    position: fixed;
+    z-index: 999;
+    height: 7em;
+    width: 7em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* Transparent Overlay */
+
+.progress-spinner:before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+.col {
+    border: solid;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.form-input {
+    margin-bottom: 25px;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.err-border {
+    border: 1px solid red !important;
+}
+
+.err-text {
+    color: red !important;
+}

@@ -1,0 +1,21 @@
+<p-button type="button" class="mr-2" style="position: fixed; margin: 5px !important; margin-top: 20px !important" (click)="visibleSidebar = true" icon="pi pi-arrow-right"></p-button>
+
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <p-tree [value]="listNode" [contextMenu]="cm" class="tree">
+        <ng-template let-node pTemplate="default">
+            <!-- Nếu có các thẻ con => Mở  -->
+            <span style="cursor:pointer" (click)="expandRecursive(node, node.expanded, false)" *ngIf="node.children.length > 0">
+        {{ node.data.label }}
+      </span>
+            <!-- Nếu k có thẻ con => Redirect -->
+            <span style="cursor:pointer" (click)="expandRecursive(node, node.expanded, true)" *ngIf="node.children.length == 0">
+        {{ node.data.label }}
+      </span>
+        </ng-template>
+    </p-tree>
+    <p-contextMenu #cm [model]="items"></p-contextMenu>
+</p-sidebar>
+
+<div class="content" style="padding: 0 !important; padding-left: 60px !important">
+    <router-outlet></router-outlet>
+</div>
